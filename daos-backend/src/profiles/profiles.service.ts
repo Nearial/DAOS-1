@@ -80,6 +80,7 @@ export class ProfilesService {
             return instrument.id != instrumentId;
         });
 
+        profile.instruments = newInstrumentArray
         // Saves the new instrumentArray
         return await profile.save();
     }

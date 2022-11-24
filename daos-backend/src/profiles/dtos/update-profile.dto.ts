@@ -1,5 +1,4 @@
 import { IsAlpha, IsBoolean, IsEmail, IsNumberString, MaxLength} from "class-validator";
-import { Instrument } from "../interfaces/instrument.interface";
 import { UpdateProfile } from "../interfaces/profile.interface";
 
 // Creating a DTO (UpdateProfileDTO), that implements a child interface (UpdateProfile)

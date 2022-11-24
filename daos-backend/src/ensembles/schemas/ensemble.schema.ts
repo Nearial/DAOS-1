@@ -5,11 +5,11 @@ export const EnsembleSchema = new mongoose.Schema({
     name: String,
     description: String,
     website: String,
-    zipCode: Number,
+    zipCode: String,
     city: String,
     activeMusicians: String,
     practiceFrequency: String,
-    continously: Boolean,
+    continuously: Boolean,
     projectBased: Boolean,
     genre: [],
     admin: [{type: mongoose.Schema.Types.ObjectId, ref: 'Profile'}]

@@ -1,4 +1,4 @@
-import { IsAlpha, IsArray, IsBoolean, IsNotEmpty, IsNumberString, IsString, MaxLength } from "class-validator";
+import { IsAlpha, IsArray, IsBoolean, IsNotEmpty, IsNumberString, MaxLength } from "class-validator";
 import { AddEditRemoveEnsemble } from "../interfaces/ensemble.interface";
 
 // Creating a DTO (EnsembleDTO), that implements a child interface (AddEditRemoveEnsemble)
@@ -13,7 +13,7 @@ export class EnsembleDTO implements AddEditRemoveEnsemble {
     readonly website: String;
 
     @IsNumberString()
-    readonly zipCode: Number;
+    readonly zipCode: String;
 
     @IsAlpha()
     readonly city: String;
@@ -23,7 +23,7 @@ export class EnsembleDTO implements AddEditRemoveEnsemble {
     readonly practiceFrequency: String;
 
     @IsBoolean()
-    readonly continously: Boolean;
+    readonly continuously: Boolean;
 
     @IsBoolean()
     readonly projectBased: Boolean;

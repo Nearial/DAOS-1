@@ -115,7 +115,7 @@ export class ProfilesController {
     }
 
     // URL = /profiles/:id/instrument/:id
-    @Put('/:id/instrument/:intrumentId')
+    @Put(':id/instrument/:instrumentId')
     editInstrument(@Param() params, @Body() editInstrument: InstrumentDTO): Promise<Profile> {
         return this.profilesService.editInstrument(params.id, params.instrumentId, editInstrument).then((result) => {
             if(result) {
@@ -129,7 +129,7 @@ export class ProfilesController {
     }
 
     // URL = /profiles/:id/instrument/:id
-    @Delete('/:id/instrument/:intrumentId')
+    @Delete('/:id/instrument/:instrumentId')
     removeInstrument(@Param() params): Promise<Profile> {
         return this.profilesService.removeInstrument(params.id, params.instrumentId).then((result) => {
             if(result) {

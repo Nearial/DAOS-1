@@ -1,0 +1,7 @@
+.home {
+    display: flex;
+}
+
+.left {
+    margin-left: 100px;
+}

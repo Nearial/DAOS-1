@@ -1,0 +1,12 @@
+.footerDefault {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #BF1E2E;
+    padding: 25px 100px;
+}
+
+.footerWidgetDefault {
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.navDefault a {
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.navDefault label:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

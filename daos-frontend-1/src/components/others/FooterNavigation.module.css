@@ -1,0 +1,8 @@
+.footerNavigationDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerNavigationDefault nav {
+    padding: 30px 0;
+}

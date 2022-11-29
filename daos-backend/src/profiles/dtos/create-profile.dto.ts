@@ -17,9 +17,6 @@ export class CreateProfileDTO {
     readonly password: string;
 
     @IsBoolean()
-    readonly status: boolean;
-
-    @IsBoolean()
     readonly newsletter: boolean;
 
     constructor(firstName: string, lastName: string, email: string, password: string, status: boolean, newsletter: boolean) {
@@ -27,7 +24,6 @@ export class CreateProfileDTO {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.status = status;
         this.newsletter = newsletter;
     }
 }

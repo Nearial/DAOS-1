@@ -12,11 +12,11 @@ export interface Ensemble {
     continuously?: Boolean,
     projectBased?: Boolean,
     genre?: [],
-    admin?: any
+    admin?: String
 }
 
-// Creating a child interface of the Ensemble interface (AddEditRemoveEnsemble)
-export interface AddEditRemoveEnsemble extends Ensemble {
+// Creating a child interface of the Ensemble interface (AddEnsemble)
+export interface AddEnsemble extends Ensemble {
     name: String,
     description: String,
     website: String,
@@ -28,4 +28,18 @@ export interface AddEditRemoveEnsemble extends Ensemble {
     projectBased: Boolean,
     genre: [],
     admin: String,
+}
+
+// Creating a child interface of the Ensemble interface (EditEnsemble)
+export interface EditEnsemble extends Ensemble {
+    name: String,
+    description: String,
+    website: String,
+    zipCode: String,
+    city: String,
+    activeMusicians: String,
+    practiceFrequency: String,
+    continuously: Boolean,
+    projectBased: Boolean,
+    genre: [],
 }

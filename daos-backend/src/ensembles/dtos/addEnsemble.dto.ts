@@ -1,8 +1,8 @@
 import { IsAlpha, IsArray, IsBoolean, IsNotEmpty, IsNumberString, MaxLength } from "class-validator";
-import { AddEditRemoveEnsemble } from "../interfaces/ensemble.interface";
+import { AddEnsemble } from "../interfaces/ensemble.interface";
 
 // Creating a DTO (EnsembleDTO), that implements a child interface (AddEditRemoveEnsemble)
-export class EnsembleDTO implements AddEditRemoveEnsemble {
+export class AddEnsembleDTO implements AddEnsemble {
     
     @IsNotEmpty()
     readonly name: String;

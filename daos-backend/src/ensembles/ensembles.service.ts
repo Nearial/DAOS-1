@@ -21,4 +21,12 @@ export class EnsemblesService {
         const newEnsemble = new this.ensembleModel(ensemble);
         return await newEnsemble.save();
     }
+
+    async update(id: string, ensemble: Ensemble): Promise<Ensemble> {
+        return await this.ensembleModel.findByIdAndUpdate(id, ensemble, {new : true});
+    }
+
+    async delete(id: string): Promise<Ensemble> {
+        return await this.ensembleModel.findByIdAndDelete(id)
+    }
 }

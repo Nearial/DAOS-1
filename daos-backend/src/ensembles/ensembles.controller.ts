@@ -1,5 +1,6 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
-import { EnsembleDTO } from './dtos/ensemble.dto';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Put, Delete } from '@nestjs/common';
+import { AddEnsembleDTO } from './dtos/addEnsemble.dto';
+import { EditEnsembleDTO } from './dtos/editEnsemble.dto';
 import { EnsemblesService } from './ensembles.service';
 import { Ensemble } from './interfaces/ensemble.interface';
 
@@ -24,7 +25,7 @@ export class EnsemblesController {
     }
 
     @Post()
-    create(@Body() createEnsemble: EnsembleDTO): Promise<Ensemble> {
+    create(@Body() createEnsemble: AddEnsembleDTO): Promise<Ensemble> {
         return this.ensemblesService.create(createEnsemble);
     }
 
@@ -41,5 +42,31 @@ export class EnsemblesController {
         }).catch(() => {
             throw new HttpException('Bad request', HttpStatus.BAD_REQUEST);
         });
+    }
+
+    @Put(':id')
+    edit(@Param('id') id, @Body() editEnsemble: EditEnsembleDTO): Promise<Ensemble> {
+        return this.ensemblesService.update(id, editEnsemble).then((result) => {
+            if(result) {
+                return result;
+            } else {
+                throw new HttpException('Ensemble not found', HttpStatus.NOT_FOUND);
+            }
+        }).catch(() => {
+            throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
+        })
+    }
+
+    @Delete(':id')
+    remove(@Param('id') id): Promise<Ensemble> {
+        return this.ensemblesService.delete(id).then((result) => {
+            if(result) {
+                return result;
+            } else {
+                throw new HttpException('Ensemble not found', HttpStatus.NOT_FOUND);
+            }
+        }).catch(() => {
+            throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
+        })
     }
 }

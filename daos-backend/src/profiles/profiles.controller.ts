@@ -4,8 +4,8 @@ import { InstrumentDTO } from './dtos/instrument-profile.dto';
 import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto';
 import { UpdatePasswordProfileDTO } from './dtos/update-password-profile.dto';
 import { UpdateProfileDTO } from './dtos/update-profile.dto';
-import { Profile } from './interfaces/profile.interface';
 import { ProfilesService } from './profiles.service';
+import { Profile } from './schemas/profile.schema';
 
 @Controller('profiles')
 export class ProfilesController {
@@ -115,7 +115,7 @@ export class ProfilesController {
     }
 
     // URL = /profiles/:id/instrument/:id
-    @Put(':id/instrument/:instrumentId')
+   @Put(':id/instrument/:instrumentId')
     editInstrument(@Param() params, @Body() editInstrument: InstrumentDTO): Promise<Profile> {
         return this.profilesService.editInstrument(params.id, params.instrumentId, editInstrument).then((result) => {
             if(result) {

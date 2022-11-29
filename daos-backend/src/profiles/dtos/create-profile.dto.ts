@@ -1,9 +1,7 @@
 import { IsAlpha, IsAlphanumeric, IsBoolean, IsEmail, MinLength } from "class-validator";
-import { Instrument } from "../interfaces/instrument.interface";
-import { CreateProfile } from "../interfaces/profile.interface";
 
 // Creating a DTO (CreateProfileDTO), that implements a child interface (CreateProfile)
-export class CreateProfileDTO implements CreateProfile {
+export class CreateProfileDTO {
     
     @IsAlpha()
     readonly firstName: string;
@@ -12,7 +10,7 @@ export class CreateProfileDTO implements CreateProfile {
     readonly lastName: string;
     
     @IsEmail()
-    readonly userName: string;
+    readonly email: string;
     
     @MinLength(8)
     @IsAlphanumeric()
@@ -23,4 +21,13 @@ export class CreateProfileDTO implements CreateProfile {
 
     @IsBoolean()
     readonly newsletter: boolean;
+
+    constructor(firstName: string, lastName: string, email: string, password: string, status: boolean, newsletter: boolean) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.status = status;
+        this.newsletter = newsletter;
+    }
 }

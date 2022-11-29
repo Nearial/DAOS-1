@@ -1,10 +1,13 @@
 import { IsAlphanumeric, MinLength } from "class-validator";
-import { UpdatePasswordProfile } from "../interfaces/profile.interface";
 
 // Creating a DTO (UpdatePasswordProfileDTO), that implements a child interface (UpdatePasswordProfile)
-export class UpdatePasswordProfileDTO implements UpdatePasswordProfile {
+export class UpdatePasswordProfileDTO {
     
     @MinLength(8)
     @IsAlphanumeric()
     readonly password: string;
+
+    constructor(password: string) {
+        this.password = password;
+    }
 }

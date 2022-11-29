@@ -1,8 +1,7 @@
 import { IsAlpha, IsArray, IsBoolean, IsNotEmpty, IsNumberString, MaxLength } from "class-validator";
-import { AddEnsemble } from "../interfaces/ensemble.interface";
 
 // Creating a DTO (EnsembleDTO), that implements a child interface (AddEditRemoveEnsemble)
-export class AddEnsembleDTO implements AddEnsemble {
+export class AddEnsembleDTO {
     
     @IsNotEmpty()
     readonly name: String;
@@ -32,4 +31,18 @@ export class AddEnsembleDTO implements AddEnsemble {
     readonly genre: [];
     
     readonly admin: string;
+
+    constructor(name: string, description: string, website: string, zipCode: string, city: string, activeMusicians: string, practiceFrequency: string, continuously: boolean, projectBased: boolean, genre: [], admin: string) {
+        this.name = name;
+        this.description = description;
+        this.website = website;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.activeMusicians = activeMusicians;
+        this.practiceFrequency = practiceFrequency;
+        this.continuously = continuously;
+        this.projectBased = projectBased;
+        this.genre = genre;
+        this.admin = admin;
+    }
 }

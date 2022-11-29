@@ -2,7 +2,7 @@ import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Put, Del
 import { AddEnsembleDTO } from './dtos/addEnsemble.dto';
 import { EditEnsembleDTO } from './dtos/editEnsemble.dto';
 import { EnsemblesService } from './ensembles.service';
-import { Ensemble } from './interfaces/ensemble.interface';
+import { Ensemble } from './schemas/ensemble.schema';
 
 @Controller('ensembles')
 export class EnsemblesController {

@@ -1,16 +1,40 @@
-import * as mongoose from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import mongoose, { Document } from 'mongoose';
+import { Profile } from 'src/profiles/schemas/profile.schema';
 
-// Creating a mongoose schema (ensembleSchema)
-export const EnsembleSchema = new mongoose.Schema({
-    name: String,
-    description: String,
-    website: String,
-    zipCode: String,
-    city: String,
-    activeMusicians: String,
-    practiceFrequency: String,
-    continuously: Boolean,
-    projectBased: Boolean,
-    genre: [],
-    admin: [{type: mongoose.Schema.Types.ObjectId, ref: 'Profile'}]
-});
+export type EnsembleDocument = Ensemble & Document;
+
+@Schema()
+export class Ensemble {
+    @Prop()
+    name: string;
+
+    @Prop()
+    description: string;
+
+    @Prop()
+    website: string;
+
+    @Prop()
+    city: string;
+
+    @Prop()
+    activeMusicians: string;
+
+    @Prop()
+    practiceFrequency: string;
+
+    @Prop()
+    continuously: Boolean;
+
+    @Prop()
+    projectBased: Boolean;
+
+    @Prop()
+    genre: [];
+
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: Profile.name})
+    admin: Profile;
+}
+
+export const EnsembleSchema = SchemaFactory.createForClass(Ensemble);

@@ -1,8 +1,7 @@
 import { IsAlpha, IsBoolean, IsEmail, IsNumberString, MaxLength} from "class-validator";
-import { UpdateProfile } from "../interfaces/profile.interface";
 
 // Creating a DTO (UpdateProfileDTO), that implements a child interface (UpdateProfile)
-export class UpdateProfileDTO implements UpdateProfile {
+export class UpdateProfileDTO {
 
     @IsAlpha()
     readonly firstName: string;
@@ -20,11 +19,22 @@ export class UpdateProfileDTO implements UpdateProfile {
     readonly city: string;
 
     @IsEmail()
-    readonly userName: string;
+    readonly email: string;
 
     @IsNumberString()
     readonly phone: string;
     
     @IsBoolean()
     readonly status: boolean;
+
+    constructor(firstName: string, lastName: string, description: string, zipCode: string, city: string, email: string, phone: string, status: boolean) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.description = description;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+    }
 }

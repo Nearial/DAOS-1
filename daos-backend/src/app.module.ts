@@ -7,7 +7,7 @@ import { EnsemblesModule } from './ensembles/ensembles.module';
   imports: [
     ProfilesModule,
     EnsemblesModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/daos'),
+    MongooseModule.forRoot('mongodb://localhost:27017/daos')
   ],
 })
 export class AppModule {}
